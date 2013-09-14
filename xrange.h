@@ -36,8 +36,10 @@ namespace detail {
 template <typename Int>
 struct xrange_iter
 {
+	static_assert(std::is_integral<Int>(), "integral expected");
+
 	using value_type = Int;
-	using difference_type = typename std::make_signed<Int>::type;
+	using difference_type = decltype(Int() - Int());
 	using pointer = Int*;
 	using reference = Int;
 	using iterator_category = std::random_access_iterator_tag;
