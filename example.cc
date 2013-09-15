@@ -26,4 +26,8 @@ int main()
 	for (auto i : r)
 		std::cout << i << ' ';
 	std::cout << std::endl;
+
+	auto r1 = xrange('A', 'Z');
+	auto len = std::distance(begin(r1), end(r1));
+	std::cout << len << std::endl;
 }

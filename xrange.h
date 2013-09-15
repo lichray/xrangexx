@@ -77,6 +77,12 @@ struct xrange_iter
 		return !(x == y);
 	}
 
+	friend inline
+	difference_type operator-(xrange_iter const& x, xrange_iter const& y)
+	{
+		return x.n_ - y.n_;
+	}
+
 private:
 	Int n_;
 };
