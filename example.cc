@@ -41,4 +41,8 @@ int main()
 		std::cout << *it << ' ';
 	while (*it++ != 'E');
 	std::cout << std::endl;
+
+	for (auto it = bg; it < ed; it = 4 + it)
+		std::cout << *it << ' ';
+	std::cout << std::endl;
 }

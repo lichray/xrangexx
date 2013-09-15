@@ -84,6 +84,38 @@ struct xrange_iter
 		return tmp;
 	}
 
+	xrange_iter& operator+=(difference_type n) noexcept
+	{
+		n_ += n;
+		return *this;
+	}
+
+	friend inline
+	xrange_iter operator+ (xrange_iter x, difference_type n) noexcept
+	{
+		x += n;
+		return x;
+	}
+
+	friend inline
+	xrange_iter operator+ (difference_type n, xrange_iter x) noexcept
+	{
+		return x + n;
+	}
+
+	xrange_iter& operator-=(difference_type n) noexcept
+	{
+		n_ -= n;
+		return *this;
+	}
+
+	friend inline
+	xrange_iter operator- (xrange_iter x, difference_type n) noexcept
+	{
+		x -= n;
+		return x;
+	}
+
 	friend inline
 	bool operator==(xrange_iter const& x, xrange_iter const& y) noexcept
 	{
@@ -94,6 +126,30 @@ struct xrange_iter
 	bool operator!=(xrange_iter const& x, xrange_iter const& y) noexcept
 	{
 		return !(x == y);
+	}
+
+	friend inline
+	bool operator< (xrange_iter const& x, xrange_iter const& y) noexcept
+	{
+		return x.n_ < y.n_;
+	}
+
+	friend inline
+	bool operator> (xrange_iter const& x, xrange_iter const& y) noexcept
+	{
+		return y < x;
+	}
+
+	friend inline
+	bool operator>=(xrange_iter const& x, xrange_iter const& y) noexcept
+	{
+		return !(x < y);
+	}
+
+	friend inline
+	bool operator<=(xrange_iter const& x, xrange_iter const& y) noexcept
+	{
+		return !(x > y);
 	}
 
 	friend inline
