@@ -58,32 +58,33 @@ struct xrange_iter
 		return n_ + n;
 	}
 
-	xrange_iter& operator++()
+	xrange_iter& operator++() noexcept
 	{
 		++n_;
 		return *this;
 	}
 
-	xrange_iter& operator--()
+	xrange_iter& operator--() noexcept
 	{
 		--n_;
 		return *this;
 	}
 
 	friend inline
-	bool operator==(xrange_iter const& x, xrange_iter const& y)
+	bool operator==(xrange_iter const& x, xrange_iter const& y) noexcept
 	{
 		return x.n_ == y.n_;
 	}
 
 	friend inline
-	bool operator!=(xrange_iter const& x, xrange_iter const& y)
+	bool operator!=(xrange_iter const& x, xrange_iter const& y) noexcept
 	{
 		return !(x == y);
 	}
 
 	friend inline
 	difference_type operator-(xrange_iter const& x, xrange_iter const& y)
+		noexcept
 	{
 		return x.n_ - y.n_;
 	}
