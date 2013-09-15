@@ -70,6 +70,20 @@ struct xrange_iter
 		return *this;
 	}
 
+	xrange_iter operator++(int) noexcept
+	{
+		xrange_iter tmp(*this);
+		++(*this);
+		return tmp;
+	}
+
+	xrange_iter operator--(int) noexcept
+	{
+		xrange_iter tmp(*this);
+		--(*this);
+		return tmp;
+	}
+
 	friend inline
 	bool operator==(xrange_iter const& x, xrange_iter const& y) noexcept
 	{

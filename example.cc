@@ -35,4 +35,10 @@ int main()
 	for (decltype(len) i = 0; i < len; i += 4)
 		std::cout << bg[i] << ' ';
 	std::cout << std::endl;
+
+	auto it = bg;
+	do
+		std::cout << *it << ' ';
+	while (*it++ != 'E');
+	std::cout << std::endl;
 }
