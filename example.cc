@@ -28,6 +28,11 @@ int main()
 	std::cout << std::endl;
 
 	auto r1 = xrange('A', 'Z');
-	auto len = std::distance(begin(r1), end(r1));
-	std::cout << len << std::endl;
+	auto bg = begin(r1);
+	auto ed = end(r1);
+	auto len = std::distance(bg, ed);
+
+	for (decltype(len) i = 0; i < len; i += 4)
+		std::cout << bg[i] << ' ';
+	std::cout << std::endl;
 }

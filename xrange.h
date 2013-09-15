@@ -53,6 +53,11 @@ struct xrange_iter
 		return n_;
 	}
 
+	constexpr reference operator[](difference_type n) const noexcept
+	{
+		return n_ + n;
+	}
+
 	xrange_iter& operator++()
 	{
 		++n_;
