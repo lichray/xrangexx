@@ -40,7 +40,7 @@ struct xrange_iter
 
 	using value_type = Int;
 	using difference_type = decltype(Int() - Int());
-	using pointer = Int*;
+	using pointer = void;
 	using reference = Int;
 	using iterator_category = std::random_access_iterator_tag;
 
