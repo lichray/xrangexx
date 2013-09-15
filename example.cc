@@ -10,7 +10,7 @@ int main()
 		std::cout << i << ' ';
 	std::cout << std::endl;
 
-	for (auto i : rxrange(-5))
+	for (auto i : rxrange(5))
 		std::cout << i << ' ';
 	std::cout << std::endl;
 
@@ -18,7 +18,7 @@ int main()
 		std::cout << i << ' ';
 	std::cout << std::endl;
 
-	for (auto i : rxrange('g', 'a'))
+	for (auto i : rxrange('a', 'g'))
 		std::cout << i << ' ';
 	std::cout << std::endl;
 

@@ -131,16 +131,16 @@ template <typename Int>
 constexpr auto rxrange(Int b)
 	-> detail::xrange_t<std::reverse_iterator<detail::xrange_iter<Int>>>
 {
-	return { make_reverse_iterator(detail::xrange_iter<Int>(0)),
-	         make_reverse_iterator(detail::xrange_iter<Int>(b)) };
+	return { make_reverse_iterator(detail::xrange_iter<Int>(b)),
+	         make_reverse_iterator(detail::xrange_iter<Int>(0)) };
 }
 
 template <typename Int>
 constexpr auto rxrange(Int a, Int b)
 	-> detail::xrange_t<std::reverse_iterator<detail::xrange_iter<Int>>>
 {
-	return { make_reverse_iterator(detail::xrange_iter<Int>(a)),
-	         make_reverse_iterator(detail::xrange_iter<Int>(b)) };
+	return { make_reverse_iterator(detail::xrange_iter<Int>(b)),
+	         make_reverse_iterator(detail::xrange_iter<Int>(a)) };
 }
 
 }
