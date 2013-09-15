@@ -45,4 +45,8 @@ int main()
 	for (auto it = bg; it < ed; it = 4 + it)
 		std::cout << *it << ' ';
 	std::cout << std::endl;
+
+	for (auto it = ed - 1; it >= bg; it = it - 4)
+		std::cout << *it << ' ';
+	std::cout << std::endl;
 }
