@@ -198,7 +198,7 @@ constexpr auto xrange(Int b)
 	-> detail::xrange_t<detail::xrange_iter<Int>>
 	// precondition: 0 <= b
 {
-	return { detail::xrange_iter<Int>(0),
+	return { detail::xrange_iter<Int>(Int()),
 	         detail::xrange_iter<Int>(b) };
 }
 
@@ -217,7 +217,7 @@ constexpr auto rxrange(Int b)
 	// precondition: 0 <= b
 {
 	return { make_reverse_iterator(detail::xrange_iter<Int>(b)),
-	         make_reverse_iterator(detail::xrange_iter<Int>(0)) };
+	         make_reverse_iterator(detail::xrange_iter<Int>(Int())) };
 }
 
 template <typename Int>
