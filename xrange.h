@@ -28,6 +28,7 @@
 
 #include <iterator>
 #include <type_traits>
+#include <cassert>
 
 namespace stdex {
 
@@ -196,8 +197,8 @@ inline auto make_reverse_iterator(Iter it)
 template <typename Int>
 inline auto xrange(Int b)
 	-> detail::xrange_t<detail::xrange_iter<Int>>
-	// precondition: 0 <= b
 {
+	assert(0 <= b && "invalid range");
 	return { detail::xrange_iter<Int>(0),
 	         detail::xrange_iter<Int>(b) };
 }
@@ -205,8 +206,8 @@ inline auto xrange(Int b)
 template <typename Int>
 inline auto xrange(Int a, Int b)
 	-> detail::xrange_t<detail::xrange_iter<Int>>
-	// precondition: a <= b
 {
+	assert(a <= b && "invalid range");
 	return { detail::xrange_iter<Int>(a),
 	         detail::xrange_iter<Int>(b) };
 }
@@ -214,8 +215,8 @@ inline auto xrange(Int a, Int b)
 template <typename Int>
 inline auto rxrange(Int b)
 	-> detail::xrange_t<std::reverse_iterator<detail::xrange_iter<Int>>>
-	// precondition: 0 <= b
 {
+	assert(0 <= b && "invalid range");
 	return { make_reverse_iterator(detail::xrange_iter<Int>(b)),
 	         make_reverse_iterator(detail::xrange_iter<Int>(0)) };
 }
@@ -223,8 +224,8 @@ inline auto rxrange(Int b)
 template <typename Int>
 inline auto rxrange(Int a, Int b)
 	-> detail::xrange_t<std::reverse_iterator<detail::xrange_iter<Int>>>
-	// precondition: a <= b
 {
+	assert(a <= b && "invalid range");
 	return { make_reverse_iterator(detail::xrange_iter<Int>(b)),
 	         make_reverse_iterator(detail::xrange_iter<Int>(a)) };
 }
