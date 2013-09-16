@@ -44,16 +44,16 @@ struct xrange_iter
 	using reference = Int;
 	using iterator_category = std::random_access_iterator_tag;
 
-	constexpr explicit xrange_iter(Int n) noexcept
+	explicit xrange_iter(Int n) noexcept
 		: n_(n)
 	{}
 
-	constexpr reference operator*() const noexcept
+	reference operator*() const noexcept
 	{
 		return n_;
 	}
 
-	constexpr reference operator[](difference_type n) const noexcept
+	reference operator[](difference_type n) const noexcept
 	{
 		return n_ + n;
 	}
@@ -166,7 +166,7 @@ private:
 template <typename Iter>
 struct xrange_t
 {
-	constexpr xrange_t(Iter first, Iter last)
+	xrange_t(Iter first, Iter last)
 		: first_(first), last_(last)
 	{}
 
@@ -194,7 +194,7 @@ inline auto make_reverse_iterator(Iter it)
 }
 
 template <typename Int>
-constexpr auto xrange(Int b)
+inline auto xrange(Int b)
 	-> detail::xrange_t<detail::xrange_iter<Int>>
 	// precondition: 0 <= b
 {
@@ -203,7 +203,7 @@ constexpr auto xrange(Int b)
 }
 
 template <typename Int>
-constexpr auto xrange(Int a, Int b)
+inline auto xrange(Int a, Int b)
 	-> detail::xrange_t<detail::xrange_iter<Int>>
 	// precondition: a <= b
 {
@@ -212,7 +212,7 @@ constexpr auto xrange(Int a, Int b)
 }
 
 template <typename Int>
-constexpr auto rxrange(Int b)
+inline auto rxrange(Int b)
 	-> detail::xrange_t<std::reverse_iterator<detail::xrange_iter<Int>>>
 	// precondition: 0 <= b
 {
@@ -221,7 +221,7 @@ constexpr auto rxrange(Int b)
 }
 
 template <typename Int>
-constexpr auto rxrange(Int a, Int b)
+inline auto rxrange(Int a, Int b)
 	-> detail::xrange_t<std::reverse_iterator<detail::xrange_iter<Int>>>
 	// precondition: a <= b
 {

@@ -22,7 +22,7 @@ int main()
 		std::cout << i << ' ';
 	std::cout << std::endl;
 
-	constexpr auto r = xrange(3UL, 8UL);
+	auto r = xrange(3UL, 8UL);
 	for (auto i : r)
 		std::cout << i << ' ';
 	std::cout << std::endl;
